@@ -48,11 +48,10 @@ jobs:
         java-version: '17'
 
     - name: Install JUnit
-      run: choco install junit
+      run: choco install junit --source javajre
 
     - name: Build files
       run: javac -cp .:/ProgramData/chocolatey/lib/junit/tools/junit-4.13.1.jar PrimeCheck.java PrimeCheckTest.java
 
     - name: Run tests
       run: java -cp .:/ProgramData/chocolatey/lib/junit/tools/junit-4.13.1.jar org.junit.runner.JUnitCore PrimeCheckTest
-    
