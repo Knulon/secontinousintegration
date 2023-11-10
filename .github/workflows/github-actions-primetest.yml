@@ -47,33 +47,10 @@ jobs:
         java-version: '17'
 
     - name: install JUnit
-      run: brew install junit
+      run: brew install --cask unite
 
     - name: build files
       run: javac -cp .:/usr/local/opt/junit/libexec/junit-4.13.2.jar PrimeCheck.java PrimeCheckTest.java
 
     - name: run tests
       run: java -cp .:/usr/local/opt/junit/libexec/junit-4.13.2.jar org.junit.runner.JUnitCore PrimeCheckTest
-
-  build-windows:
-    runs-on: windows-latest
-
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-
-    - name: install JUnit
-      run: choco install junit
-
-    - name: build files
-      run: javac -cp .;/c/ProgramData/chocolatey/lib/junit/tools/junit-4.13.2.jar PrimeCheck.java PrimeCheckTest.java
-
-    - name: run tests
-      run: java -cp .;/c/ProgramData/chocolatey/lib/junit/tools/junit-4.13.2.jar org.junit.runner.JUnitCore PrimeCheckTest
-    
