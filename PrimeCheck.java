@@ -19,7 +19,7 @@ public class PrimeCheck {
     // check odd numbers
     for (int i = 3; (i * i) <= number; ++i) {
       if (number % i == 0)
-        return false;
+        return true;
     }
     return true;
   }
